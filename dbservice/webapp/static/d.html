@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>北科脑图</title>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+</head>
+<style>
+  body {
+    background-color: #EBEBEB;
+  }
+  .container-fluid {
+    height: 100% !important;
+  }
+
+  .detail-info {
+    padding-top: 50px;
+    padding-left: 20px;
+  }
+
+  #left,
+  #right {
+    height: 100%;
+    padding-bottom: 52px;
+  }
+
+  #left {}
+
+  #pic {
+    width: 100%;
+    border: solid 2px;
+    margin-top: 20px;
+    padding: 3px;
+    display: block;
+    background-color: black;
+  }
+
+  #header {
+    padding-top: 30px;
+    border-bottom: solid 3px;
+  }
+
+  #username {
+    text-align: center;
+  }
+  #footer {
+    width: 100%;
+  }
+  .nav .active {
+    background-color: lightgray;
+  }
+
+  li a {
+    font-size: 16px;
+    color: black;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  li a:hover {
+    background: gray !important;
+    display: block;
+    color: black;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation" style="border-radius:0px;margin-bottom:0px;">
+    <div class="navbar-header"><a class="navbar-brand" href="#">北科脑图</a></div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">首页</a></li>
+        <li><a href="#">关于</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="padding-right:50px;margin-right: 0;">
+        <li style="color:white;padding:15px">
+          MyMind
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:10px">
+                    <img height=30px src="/a.jpg" alt="">
+                    <b class="caret"></b>
+                </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">用户信息</a></li>
+            <li class="divider"></li>
+            <li><a href="#">退出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div id="header" class="col-sm-8 col-sm-offset-2">
+        <h4>用户信息</h4>
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <!-- 用户信息选项 -->
+      <div id="left" class="col-sm-3 col-sm-offset-2">
+        <a href="#"><img id="pic" src="/a.jpg" alt="" class="img-rounded center-block"></a>
+        <h3 id="username">MyMind</h3>
+        <ul class="nav nav-list">
+          <li class="nav-header">
+            <h4>个人信息</h4>
+          </li>
+          <li class="active">
+            <a href="#">基本信息</a>
+          </li>
+          <li>
+            <a href="#">帐户与密码</a>
+          </li>
+          <li>
+            <a href="#">其它</a>
+          </li>
+          <li class="nav-header">
+            <h4>文档信息</h4>
+          </li>
+          <li>
+            <a href="#">创建文档</a>
+          </li>
+          <li>
+            <a href="#">参与文档</a>
+          </li>
+          <li class="divider">
+          </li>
+          <li>
+            <a href="#">其它</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 用户信息 -->
+    <div id="right" class="col-sm-5">
+      <!-- 基本信息 -->
+      <div class="detail-info">
+        <h4>基本信息</h4>
+        <form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="setting-head responsive-head"></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="base">
+            <tr>
+              <td class="setting-title">
+                姓名
+              </td>
+              <td>
+                <input type="text" class="form-control" name="" value="" style="max-width:150px">
+              </td>
+            </tr>
+            <tr>
+              <td class="setting-title">性别</td>
+              <td><input name="sex" type="radio" checked="checked" />男
+
+                <input name="sex" type="radio" />女</td>
+              <!---->
+              </td>
+            </tr>
+            <tr>
+              <td class="setting-title">单位</td>
+              <td>
+                <input type="text" name="" class="form-control" value="">
+              </td>
+            </tr>
+            <tr>
+              <td class="setting-title">
+                电话
+              </td>
+              <td>
+                <input type="text" name="" class="form-control" value="">
+              </td>
+            </tr>
+            <tr>
+              <td class="setting-title">
+                邮箱
+              </td>
+              <td>
+                <input type="text" name="" class="form-control" value="">
+              </td>
+            </tr>
+            <td></td>
+            <td>
+              <div class="" style="float:right">
+                <input type="button" class="btn" name="" value="确认">
+                <input type="button" class="btn" name="" value="取消">
+              </div>
+            </td>
+          </tbody>
+        </table>
+</form>
+      </div>
+      <!-- 帐户与密码 -->
+      <div class="detail-info">
+        <h4>帐户与密码</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>创建时间</td>
+              <td>2018-5-24</td>
+            </tr>
+            <tr>
+              <td><span>绑定邮箱</span></td>
+              <td>
+                <span>naotu@mail.ustb.edu.cn</span>
+                <a href="#" style="padding-left:10px">绑定</a>/
+                <a href="#">解绑</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>修改密码</span>
+
+              </td>
+              <td> <input type="password" class="form-control" name="" value="">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>再次输入密码</span>
+
+              </td>
+              <td> <input type="password" class="form-control" name="" value="">
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+
+              <td>
+                <input type="button" class="btn" name="" value="确认修改" style="float:right">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 创建文档 -->
+      <div class="detail-info">
+        <h4>创建文档</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>文档名称</th>
+              <th>创建时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">北科脑图</a></td>
+              <td>2018-5-24</td>
+            </tr>
+            <tr>
+              <td><a href="#">执行git stash pop时的冲突解决</a></td>
+              <td>2018-5-25</td>
+            </tr>
+            <tr>
+              <td><a href="#">我是如何写出一本畅销技术书的</a></td>
+              <td>2018-5-26</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="pagination pagination-sm pull-right">
+          <li><a href="#">&laquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li class="disabled"><a href="#">...</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+        <div style="clear:both"></div>
+      </div>
+      <!-- 参与文档 -->
+      <div class="detail-info">
+        <h4>参与文档</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>文档名称</th>
+              <th>创建时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#">北科脑图</a></td>
+              <td>2018-5-24</td>
+            </tr>
+            <tr>
+              <td><a href="#">执行git stash pop时的冲突解决</a></td>
+              <td>2018-5-25</td>
+            </tr>
+            <tr>
+              <td><a href="#">我是如何写出一本畅销技术书的</a></td>
+              <td>2018-5-26</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="pagination pagination-sm pull-right">
+          <li><a href="#">&laquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li class="disabled"><a href="#">...</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+        <div style="clear:both"></div>
+      </div>
+    </div>
+  </div>
+  <div id="footer" class="container-fluid">
+		<div class="row" style="text-align:center;background-color:#434343;">
+			<div class="col-12">
+				<p style="color:white">&copy; 北科脑图 2018</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

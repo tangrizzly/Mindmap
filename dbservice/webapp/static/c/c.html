@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>北科脑图编辑页面展示</title>
+
+	<!-- bower:css -->
+	<link rel="stylesheet" href="/c/bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="/c/bower_components/codemirror/lib/codemirror.css" />
+	<link rel="stylesheet" href="/c/bower_components/hotbox/hotbox.css" />
+	<link rel="stylesheet" href="/c/node_modules/kityminder-core/dist/kityminder.core.css" />
+	<link rel="stylesheet" href="/c/bower_components/color-picker/dist/color-picker.min.css" />
+	<!-- endbower -->
+
+	<link rel="stylesheet" href="/c/kityminder.editor.min.css">
+	<link rel="stylesheet" href="/c/c.css">
+</head>
+
+<body ng-app="kityminderDemo" ng-controller="MainController">
+	<nav class="navbar navbar-inverse" role="navigation" style="border-radius:0px;margin-bottom:0px;">
+		<div class="navbar-header"><a class="navbar-brand" href="#">北科脑图</a></div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">首页</a></li>
+				<li><a href="#">关于</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" style="padding-right:50px;margin-right: 0;">
+				<li id="user-name" style="color:white;padding:15px">
+					MyMind
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding:10px">
+                    <img height=30px src="/c/images/a.jpg" alt="">
+                    <b class="caret"></b>
+                </a>
+					<ul class="dropdown-menu">
+						<li><a onclick="getUserInfo()">用户信息</a></li>
+						<li class="divider"></li>
+						<li><a href="#">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="container" class="container-fluid">
+		<div id="slide-bar" class="col-xs-3 col-sm-3 col-md-3">
+			<div id="new-file" class="row-fluid dropdown">
+				<img height=20px src="/c/images/plus23.png"></img>
+				<a id="new-file-dropdown" href="#" onclick="" class="dropdown-toggle" data-toggle="dropdown">新文档</a>
+				<b class="caret"></b>
+				<ul class="dropdown-menu">
+					<li><a href="#" onclick="createDocument(false)">新建文档</a></li>
+					<li><a href="#" onclick="createDocument(true)">新建文件夹</a></li>
+					<li class="divider"></li>
+					<li><a href="#" onclick="fromInitation()">加入邀请</a></li>
+				</ul>
+			</div>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default" style="margin-top:0">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+				<a id="list-a" data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseOne">
+					最近文档
+				</a>
+			</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div id="treeview" class=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" style="margin-top:0">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+				<a id="list-a" data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseTwo">
+					我创建的
+				</a>
+			</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div id="treeview1" class=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" style="margin-top:0">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+				<a id="list-a" data-toggle="collapse" data-parent="#accordion"
+				   href="#collapseThree">
+					我参与的
+				</a>
+			</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div id="treeview2" class=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-9 col-xs-9 col-sm-9" style="height: 100%;padding: 0;">
+			<div id="title-bar" class="row-fluid">
+
+				<h1 id="editor-title" class="editor-title" style="display:inline-block">北科脑图编辑页面展示</h1>
+				<div id="title-tool" style="float:right;margin-right:20px;">
+					<button id="btnHistory" type="button" class="btn btn-primary">查看历史版本</button>
+					<button id="btnInvite" type="button" class="btn btn-primary">邀请</button>
+					<button id="btnCommit" type="button" class="btn btn-primary">提交</button>
+					<button id="btnExport" type="button" class="btn btn-primary">导出</button>
+				</div>
+			</div>
+			<div id="minder-container" class="row-fluid" style="100%">
+
+				<kityminder-editor style="" on-init="initEditor(editor, minder)"></kityminder-editor>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="container-fluid">
+		<div class="row" style="text-align:center;background-color:#434343;">
+			<div class="col-12">
+				<p style="color:white">&copy; 北科脑图 2018</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- bower:js -->
+<script src="/c/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/c/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/c/bower_components/angular/angular.min.js"></script>
+<script src="/c/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/c/bower_components/codemirror/lib/codemirror.js"></script>
+<script src="/c/bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="/c/bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="/c/bower_components/codemirror/mode/css/css.js"></script>
+<script src="/c/bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="/c/bower_components/codemirror/mode/markdown/markdown.js"></script>
+<script src="/c/bower_components/codemirror/addon/mode/overlay.js"></script>
+<script src="/c/bower_components/codemirror/mode/gfm/gfm.js"></script>
+<script src="/c/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+<script src="/c/bower_components/marked/lib/marked.js"></script>
+<script src="/c/bower_components/kity/dist/kity.min.js"></script>
+<script src="/c/bower_components/hotbox/hotbox.js"></script>
+<script src="/c/bower_components/json-diff/json-diff.js"></script>
+<script src="/c/node_modules/kityminder-core/dist/kityminder.core.min.js"></script>
+<script src="/c/bower_components/color-picker/dist/color-picker.min.js"></script>
+<!-- endbower -->
+
+<script src="/c/kityminder.editor.min.js"></script>
+<script src="/c/bootstrap-treeview.js" charset="utf-8"></script>
+<script src="/c/c.js" charset="utf-8"></script>
+<script src="/js/jquery.cookie.js" charset="utf-8"></script>
+<script src="/js/sweetAlert.js"></script>
+<script src="/c/socket.js"></script>
+</html>
