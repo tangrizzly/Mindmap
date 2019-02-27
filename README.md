@@ -1,12 +1,13 @@
 # MindMap
-<!-- [![CircleCI](https://circleci.com/gh/tinyrolls/MindMap/tree/master.svg?style=svg&circle-token=3e82adc34620ed4b4a0e4a7358d7d218e5f7921e)](https://circleci.com/gh/tinyrolls/MindMap/tree/master)
-The Application for SE  
-service IP:39.106.60.122  
-user :root  
-password : FUWUQI169a  
-尽量使用x_mind用户  
-数据库
 
- -->
+An online mind map editor developed based on the [KityMinder Core](https://github.com/fex-team/kityminder-core) public visualization toolbox. 
 
- An online mind map editor.
+Here are some basic functions:
+
+1. Node and its annotation management
+2. User and collaborative editing group management
+3. User login management
+4. Mind map content search
+5. Real-time information sharing
+6. Version control
+7. Mind map export
